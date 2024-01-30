@@ -110,6 +110,7 @@ function App() {
           ></button>
         </header>
         <section className="todo__section">
+          <h2 className="sr-only">Add Todos</h2>
           <form className="todo__form" onSubmit={handleSubmit}>
             <input
               className="todo__checkbox"
@@ -135,6 +136,7 @@ function App() {
             </label>
           </form>
           <section className="todo__task-section">
+            <h2 className="sr-only">Todo Items List</h2>
             <TodoList
               todos={todos}
               toggleTodo={toggleTodo}
