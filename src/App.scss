@@ -117,7 +117,7 @@ body {
               color: var(--very-dark);
             }
             .todo__task-item--container {
-              font-size: 0.747rem;
+              font-size: 0.8rem;
               font-weight: 700;
               color: var(--light-grayish);
               display: flex;
@@ -156,6 +156,7 @@ body {
           position: relative;
           .todo__task-count {
             font-weight: 700;
+            font-size: 12.5px;
           }
           .todo__clear-completed-button {
             background: transparent;
