@@ -7,7 +7,23 @@ function App() {
   const [newTodo, setNewTodo] = useState("");
   const [todos, setTodos] = useState(() => {
     const TodoData = localStorage.getItem("todos");
-    if (TodoData == null) return [];
+    if (TodoData == null)
+      return [
+        {
+          id: 1,
+          newTodo: "Complete online JavaScript course",
+          completed: true,
+        },
+        { id: 2, newTodo: "Jog around the park 3x", completed: false },
+        { id: 3, newTodo: "10 minutes meditation", completed: false },
+        { id: 4, newTodo: "Read for 1 hour", completed: false },
+        { id: 5, newTodo: "Pick up groceries", completed: false },
+        {
+          id: 6,
+          newTodo: "Complete Todo App on Frontend Mentor",
+          completed: false,
+        },
+      ];
     return JSON.parse(TodoData);
   });
   const [ischecked, setIscheckd] = useState(false);

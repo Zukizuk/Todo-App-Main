@@ -43,7 +43,7 @@ body {
   @media (min-width: 64rem) {
     background: url(./images/bg-desktop-dark.jpg) no-repeat, var(--BottomBG);
     background-size: contain;
-    padding: 4.75rem 28rem;
+    padding: 4.75rem 28rem 7.25rem;
   }
   .todo {
     .todo__header {
@@ -75,19 +75,23 @@ body {
         align-items: center;
         gap: 0.75rem;
         margin-bottom: 1rem;
+        @media (min-width: 64rem) {
+          min-height: 3.875rem;
+          margin-bottom: 3rem;
+        }
         .todo__label {
           height: 100%;
           flex: 1;
           display: grid;
           .todo__input {
-            color: var(--dark-grayish);
+            color: var(--light-grayish);
             outline: none;
             border: none;
             font-family: inherit;
             background: transparent;
             user-select: none;
             &::placeholder {
-              color: inherit;
+              color: var(--dark-grayish);
             }
           }
         }
@@ -103,8 +107,13 @@ body {
             padding-block: 0.75rem;
             min-height: 3.25rem;
             display: grid;
+            @media (min-width: 64rem) {
+              min-height: 3.875rem;
+            }
             &--No-Todos {
-              text-align: center;
+              display: flex;
+              align-items: center;
+              justify-content: center;
               color: var(--very-dark);
             }
             .todo__task-item--container {
@@ -154,6 +163,9 @@ body {
             outline: none;
             color: var(--very-dark);
             font-family: inherit;
+            &:hover {
+              color: var(--light-grayish);
+            }
           }
           .todo__toggle-buttons {
             position: absolute;
@@ -168,6 +180,14 @@ body {
             align-items: center;
             gap: 1rem;
             box-shadow: 0 10px 10px 0 rgba($color: #000000, $alpha: 0.1);
+            @media (min-width: 64rem) {
+              position: static;
+              border-radius: unset;
+              height: unset;
+              width: unset;
+              box-shadow: none;
+              flex: 1;
+            }
             &.All {
               .todo__toggle-button--all {
                 color: var(--Bright-Blue);
@@ -189,6 +209,9 @@ body {
               outline: none;
               color: var(--dark-grayish);
               font-weight: 700;
+              &:hover {
+                color: var(--light-grayish);
+              }
             }
           }
           .todo__drag-instruction {
@@ -197,6 +220,9 @@ body {
             bottom: -7.5rem;
             width: 100%;
             text-align: center;
+            @media (min-width: 64rem) {
+              bottom: -3rem;
+            }
           }
         }
       }
