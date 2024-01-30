@@ -4,7 +4,7 @@
 body {
   min-height: 100svh;
   font-family: "Josefin Sans", sans-serif;
-  padding: 3rem 1.5rem 0;
+  padding: 3rem 1.5rem 10rem;
   background: url(./images/bg-mobile-dark.jpg) no-repeat, var(--BottomBG);
   background-position: top;
   background-size: contain;
@@ -130,6 +130,13 @@ body {
               color: var(--very-dark);
               font-weight: 700;
             }
+          }
+          .todo__drag-instruction {
+            position: absolute;
+            left: 0;
+            bottom: -7.5rem;
+            width: 100%;
+            text-align: center;
           }
         }
       }

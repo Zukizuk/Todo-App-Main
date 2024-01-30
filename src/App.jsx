@@ -80,11 +80,11 @@ function App() {
               toggleTodo={toggleTodo}
               deleteTodo={deleteTodo}
               filterTodos={filterTodos}
+              setTodos={setTodos}
             />
             <Details todos={todos} setFilterTodos={setFilterTodos} />
           </section>
         </section>
-        <p className="todo__drag-instruction">Drag and drop to reorder list</p>
       </main>
     </>
   );

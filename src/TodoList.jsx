@@ -1,4 +1,4 @@
-function TodoList({ todos, toggleTodo, deleteTodo, filterTodos }) {
+function TodoList({ todos, toggleTodo, deleteTodo, filterTodos, setTodos }) {
   const filteredList = todos.filter((todo) => {
     if (filterTodos === "All") {
       return true;
@@ -8,6 +8,26 @@ function TodoList({ todos, toggleTodo, deleteTodo, filterTodos }) {
       return todo.completed;
     }
   });
+  const handleDragStart = (e, id) => {
+    e.dataTransfer.setData("id", id);
+  };
+
+  const handleDragOver = (e) => {
+    e.preventDefault();
+  };
+
+  const handleDrop = (e, dropId) => {
+    const dragId = e.dataTransfer.getData("id");
+    const draggedItem = todos.find((todo) => todo.id === dragId);
+    const dropIndex = todos.findIndex((todo) => todo.id === dropId);
+    const dragIndex = todos.findIndex((todo) => todo.id === dragId);
+    const newTodos = [...todos];
+
+    newTodos.splice(dragIndex, 1);
+    newTodos.splice(dropIndex, 0, draggedItem);
+
+    setTodos(newTodos);
+  };
 
   return (
     <ul className="todo__task-list">
@@ -16,7 +36,14 @@ function TodoList({ todos, toggleTodo, deleteTodo, filterTodos }) {
       )}
       {filteredList.map((todo) => {
         return (
-          <li className="todo__task-item" key={todo.id}>
+          <li
+            className="todo__task-item"
+            key={todo.id}
+            draggable
+            onDragStart={(e) => handleDragStart(e, todo.id)}
+            onDragOver={(e) => handleDragOver(e)}
+            onDrop={(e) => handleDrop(e, todo.id)}
+          >
             <div className="todo__task-item--container">
               <input
                 type="checkbox"

@@ -23,6 +23,7 @@ export function Details({ todos, setFilterTodos }) {
         </button>
       </div>
       <button className="todo__clear-completed-button">Clear Completed</button>
+      <p className="todo__drag-instruction">Drag and drop to reorder list</p>
     </div>
   );
 }
