@@ -23,6 +23,9 @@ body {
         border: none;
         outline: none;
         background: url(./images/icon-sun.svg) center/cover no-repeat;
+        &.light {
+          background: url(./images/icon-moon.svg) center/cover no-repeat;
+        }
       }
     }
     .todo__section {
@@ -123,6 +126,21 @@ body {
             justify-content: center;
             align-items: center;
             gap: 1rem;
+            &.All {
+              .todo__toggle-button--all {
+                color: var(--Bright-Blue);
+              }
+            }
+            &.Active {
+              .todo__toggle-button--active {
+                color: var(--Bright-Blue);
+              }
+            }
+            &.Completed {
+              .todo__toggle-button--completed {
+                color: var(--Bright-Blue);
+              }
+            }
             .todo__toggle-button {
               background: transparent;
               border: none;

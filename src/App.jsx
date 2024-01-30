@@ -1,13 +1,28 @@
 import { Details } from "./Details";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import "./App.scss";
 import TodoList from "./TodoList";
 
 function App() {
   const [newTodo, setNewTodo] = useState("");
-  const [todos, setTodos] = useState([]);
+  const [todos, setTodos] = useState(() => {
+    const TodoData = localStorage.getItem("todos");
+    if (TodoData == null) return [];
+    return JSON.parse(TodoData);
+  });
   const [ischecked, setIscheckd] = useState(false);
   const [filterTodos, setFilterTodos] = useState("All");
+  const [isdarktheme, setIsdarktheme] = useState(true);
+
+  useEffect(() => {
+    localStorage.setItem("todos", JSON.stringify(todos));
+    console.log("todo");
+  }, [todos]);
+
+  useEffect(() => {
+    document.body.classList.toggle("light", !isdarktheme);
+    console.log("light");
+  }, [isdarktheme]);
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -24,6 +39,12 @@ function App() {
     setNewTodo("");
     setIscheckd(false);
   };
+
+  function clearCompletedTodos() {
+    setTodos((currentTodos) => {
+      return currentTodos.filter((todo) => !todo.completed);
+    });
+  }
 
   const toggleTodo = (id, completed) => {
     setTodos((currentTodos) => {
@@ -49,8 +70,11 @@ function App() {
         <header className="todo__header">
           <h1 className="todo__title">TODO</h1>
           <button
-            className="todo__theme-toggle"
+            className={
+              isdarktheme ? "todo__theme-toggle" : "todo__theme-toggle light"
+            }
             aria-label="Toggle Light/Dark Theme"
+            onClick={() => setIsdarktheme(!isdarktheme)}
           ></button>
         </header>
         <section className="todo__section">
@@ -82,7 +106,12 @@ function App() {
               filterTodos={filterTodos}
               setTodos={setTodos}
             />
-            <Details todos={todos} setFilterTodos={setFilterTodos} />
+            <Details
+              todos={todos}
+              setFilterTodos={setFilterTodos}
+              filterTodos={filterTodos}
+              clearCompletedTodos={clearCompletedTodos}
+            />
           </section>
         </section>
       </main>
