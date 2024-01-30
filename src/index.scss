@@ -94,37 +94,6 @@ a {
   justify-content: space-between;
 }
 
-.todo__checkbox {
-  width: 18px;
-  height: 18px;
-  appearance: none;
-  border-radius: 50%;
-  position: relative;
-  transition: 0.4s ease;
-  border: 1px solid var(--Very-Dark-Grayish-Blue);
-  &::before {
-    position: absolute;
-    content: "";
-    top: 50%;
-    left: 50%;
-    translate: -50% -50%;
-    width: 11px;
-    height: 9px;
-    visibility: hidden;
-    background: url(./images/icon-check.svg) center/cover no-repeat;
-  }
-  &:checked {
-    background: linear-gradient(
-      to right,
-      var(--Check-Background-from),
-      var(--to)
-    );
-    &::before {
-      visibility: visible;
-    }
-  }
-}
-
 * {
   user-select: none;
 }

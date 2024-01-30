@@ -36,8 +36,8 @@ body {
 
 body.light {
   --BottomBG: var(--Very-Light-Gray-light);
-  --TodoBG: var(--Very-Light-Grayish-Blue-light);
-  --light-grayish: var(--Light-Grayish-Blue-light);
+  --TodoBG: white;
+  --light-grayish: var(--Very-Dark-Grayish-Blue-light);
   --dark-grayish: var(--Dark-Grayish-Blue-light);
-  --very-dark: var(--Very-Dark-Grayish-Blue-light);
+  --very-dark: var(--Light-Grayish-Blue-light);
 }
