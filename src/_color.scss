@@ -1,0 +1,43 @@
+:root {
+  --Bright-Blue: hsl(220, 98%, 61%);
+  --Check-Background-from: hsl(192, 100%, 67%);
+  --to: hsl(280, 87%, 65%);
+  // ### Neutral
+
+  // ### Light Theme
+
+  --Very-Light-Gray-light: hsl(0, 0%, 98%);
+  --Very-Light-Grayish-Blue-light: hsl(236, 33%, 92%);
+  --Light-Grayish-Blue-light: hsl(233, 11%, 84%);
+  --Dark-Grayish-Blue-light: hsl(236, 9%, 61%);
+  --Very-Dark-Grayish-Blue-light: hsl(235, 19%, 35%);
+
+  // ### Dark Theme
+  --Very-Dark-Blue: hsl(235, 21%, 11%);
+
+  --Very-Dark-Desaturated-Blue: hsl(235, 24%, 19%);
+  --Light-Grayish-Blue: hsl(234, 39%, 85%);
+  --Light-Grayish-Blue-hover: hsl(236, 33%, 92%);
+  --Dark-Grayish-Blue: hsl(234, 11%, 52%);
+  --Very-Dark-Grayish-Blue: hsl(233, 14%, 35%);
+  --Very-Dark-Grayish-Blue-two: hsl(237, 14%, 26%);
+  --fontsize: 18px;
+}
+
+body {
+  --BottomBG: var(--Very-Dark-Blue);
+  --TodoBG: var(--Very-Dark-Desaturated-Blue);
+  --light-grayish: var(--Light-Grayish-Blue);
+  --light-grayish-hover: var(--Light-Grayish-Blue-hover);
+  --dark-grayish: var(--Dark-Grayish-Blue);
+  --very-dark: var(--Very-Dark-Grayish-Blue);
+  --very-dark2: var(--Very-Dark-Grayish-Blue-two);
+}
+
+body.light {
+  --BottomBG: var(--Very-Light-Gray-light);
+  --TodoBG: var(--Very-Light-Grayish-Blue-light);
+  --light-grayish: var(--Light-Grayish-Blue-light);
+  --dark-grayish: var(--Dark-Grayish-Blue-light);
+  --very-dark: var(--Very-Dark-Grayish-Blue-light);
+}
